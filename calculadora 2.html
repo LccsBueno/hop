@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOP_TECH</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="div_style">
+    <div class="caixa_hop">
+        Tamanho da área em m²: 
+        <br>
+        <input id="ipt_metrosq" type="number"> 
+        <br>
+
+        <i>OU</i>
+        <br>
+
+        Tamanho da área em Hectares: 
+        <br>
+        <input id="ipt_hectares" type="number"> 
+        <br>
+    </div>
+
+    <div class="caixa_hop">
+        Valor de venda do kg do lúpulo paletizado: 
+        <br>
+        <input id="ipt_valor">
+        <br>
+    </div>
+
+    <div class="caixa_hop">
+        <span>Possui iluminação artificial ?</span> 
+        <br>
+    </div> 
+    <button onclick="Possuir()">Sim</button>
+    <button onclick="naoPossuir()">Não</button>
+    </div>
+    
+    <div id="div_sim"></div>
+       
+</body>
+</html>
+<script>
+    function Possuir(){
+        //Foi adotado como padrão o hectare, então transformamos a medida em metro para hectare.
+        var METROS = Number(ipt_metrosq.value)
+        var AREA_HECTARE= Number(ipt_hectares.value)
+                if (METROS>0){
+            var AREA_HECTARE = METROS/10000
+        }
+        var PRODTOP = AREA_HECTARE*3400
+        div_sim.innerHTML = `<br>Parabéns pela produção! Mas você ainda pode melhorar! Com seu controle correto, utilizando os dados disponibilizados pela nossa solução, você pode chegar até ${PRODTOP} kg de lúpulo paletizados por ano, com qualidade para deixar até o mais exigente cervejeiro satisfeito!`
+
+        var CUSTOKG= Number(ipt_valor.value)
+        var FATURAMENTO= CUSTOKG*PRODTOP
+
+        div_sim.innerHTML += `<br><br>Com nossa solução você pode chegar a faturar <b>R$ ${FATURAMENTO}</b> por ano! Entre em contato ou realize o cadastro que nossa equipe entrará em contato com você!`
+    }
+    function naoPossuir(){
+        //Foi adotado como padrão o hectare, então transformamos a medida em metro para hectare.
+        var METROS = Number(ipt_metrosq.value)
+        var AREA_HECTARE= Number(ipt_hectares.value)
+                if (METROS>0){
+            var AREA_HECTARE = METROS/10000
+        }
+        var PROD = AREA_HECTARE*2400
+        div_sim.innerHTML = `<br>Sua plantação tem o potencial mínimo podutivo de ${PROD} kg de lúpulo paletizados por ano! Instale iluminção artificial e com ajuda da HOP_TECH atinja melhores resultados!`
+
+        var CUSTOKG= Number(ipt_valor.value)
+        var FATURAMENTO= CUSTOKG*PROD
+
+        div_sim.innerHTML += `<br><br>Com nossa solução você pode chegar a faturar <b>R$ ${FATURAMENTO}</b> por ano! Entre em contato ou realize o cadastro que nossa equipe entrará em contato com você!`
+    }
+    </script>

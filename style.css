@@ -1,0 +1,23 @@
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    background: #DCEEB7;
+}
+
+.div_style {    
+    margin: 0;
+    text-align: center;
+    padding: 50px;
+}
+
+.caixa_hop {
+    font-weight: 900px;
+    text-align: center;
+    width: 200px;
+    height: 75px;
+    background: #6DC150;
+    border-radius: 18px;
+    margin: 10px auto;
+    padding: 15px;
+}
+
